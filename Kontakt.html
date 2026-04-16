@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LH_KONTAKT</title>
+    
+    <link rel="stylesheet" href="Kopf.css">
+    <style>
+    
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dddbdb;
+            margin: 0;
+            padding: 20px;
+        }
+        .container_kontakt {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        /* Grundlayout */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  background-color: #0d1117;
+  color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.8rem 1.2rem;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Desktop-Menü */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #58a6ff;
+}
+
+/* Mobile Toggle */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none; /* wird mobil eingeblendet */
+}
+
+/* Responsives Verhalten */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #161b22;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.8rem;
+    display: block;
+  }
+}
+
+    </style>
+  <header class="header">
+  <div class="logo-area">
+    <img src="Logo.jpg" alt="Logo">
+    <h1>LH_VIDEOGRAFIE</h1>
+  </div>
+
+  <button id="menu-toggle" class="menu-toggle">☰</button>
+
+  <nav>
+    <ul id="main-nav" class="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="erfahrungen.html">Über uns</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="referenzen.html">Referenzen</a></li>
+      <li><a href="preise.html">Preise</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="impressum.html">Impressum</a></li>
+    </ul>
+  </nav>
+</header>
+</html>
+<body>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
+
+
+<div class="container_kontakt">
+
+  <h2>Kontakt</h2>
+
+  <form action="https://formspree.io/f/xaqaedob" method="POST">
+
+    <input type="text" name="name" placeholder="Name" required>
+
+    <input type="email" name="email" placeholder="E-Mail" required>
+
+    <textarea name="message" placeholder="Nachricht" required></textarea>
+
+    <button type="submit">Senden</button>
+
+  </form>
+
+</div>
