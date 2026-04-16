@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #dddbdb;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  background: rgb(83,84,84);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-area img {
+  width: 55px;
+  height: 55px;
+}
+
+/* ================= NAV ================= */
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 12px;
+
+  transition: 0.2s ease; /* FIX: smoother mobile open/close */
+}
+
+.nav-menu li a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  background: black;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Hover */
+.nav-menu li a:hover {
+  background: rgb(235,97,55);
+}
+
+/* ================= BURGER ================= */
+
+.menu-toggle {
+  font-size: 32px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none;
+  z-index: 10000;
+
+  padding: 10px; /* FIX: better mobile click area */
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgb(40,40,40);
+    padding: 15px;
+
+    opacity: 0; /* FIX smooth animation */
+    transform: translateY(-10px);
+    pointer-events: none;
+  }
+
+  .nav-menu.active {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .nav-menu li {
+    margin: 10px 0;
+  }
+}
+
+/* ================= SERVICES ================= */
+
+.services-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.service {
+  background: white;
+  margin: 10px;
+  padding: 15px;
+  width: 280px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.service img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* ================= LIGHTBOX FIX (WICHTIG) ================= */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999999; /* über allem inkl. Header */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+  z-index: 1000000; /* garantiert klickbar */
+}
