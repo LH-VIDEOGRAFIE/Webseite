@@ -196,3 +196,53 @@ body {
     padding: 12px;
   }
 }
+
+
+
+
+
+
+
+
+
+/* =========================
+   RESPONSIVE TABLE (MOBILE)
+========================= */
+@media (max-width: 768px) {
+
+  .price-list thead {
+    display: none; /* Kopfzeile ausblenden */
+  }
+
+  .price-list, 
+  .price-list tbody, 
+  .price-list tr, 
+  .price-list td {
+    display: block;
+    width: 100%;
+  }
+
+  .price-list tr {
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+
+  .price-list td {
+    text-align: right;
+    padding: 12px;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .price-list td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 12px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
