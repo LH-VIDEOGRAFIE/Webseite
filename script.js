@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
 
   const toggle = document.getElementById("menu-toggle");
@@ -80,6 +79,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
 });
-
