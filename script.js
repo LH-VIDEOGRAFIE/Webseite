@@ -8,20 +8,46 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // Verhindert Doppelauslösung bei Touch + Click
+  let touchUsed = false;
+
+  function toggleMenu(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    nav.classList.toggle("active");
+  }
+
+  function closeMenu() {
+    nav.classList.remove("active");
+  }
+
   // =========================
-  // OPEN / CLOSE TOGGLE
+  // CLICK (Desktop / normale Browser)
   // =========================
   toggle.addEventListener("click", (e) => {
-    e.stopPropagation();
-    nav.classList.toggle("active");
+    if (touchUsed) {
+      touchUsed = false;
+      return;
+    }
+    toggleMenu(e);
   });
+
+  // =========================
+  // TOUCHSTART (iPad / iPhone Safari Fix)
+  // =========================
+  toggle.addEventListener("touchstart", (e) => {
+    touchUsed = true;
+    toggleMenu(e);
+  }, { passive: false });
 
   // =========================
   // LINKS SCHLIESSEN MENÜ
   // =========================
   nav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
-      nav.classList.remove("active");
+      closeMenu();
     });
   });
 
@@ -30,23 +56,29 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      nav.classList.remove("active");
+      closeMenu();
     }
   });
 
   // =========================
-  // OPTIONAL: CLICK OUTSIDE
-  // (SAFE VERSION, KEIN BUG)
+  // CLICK OUTSIDE
   // =========================
   document.addEventListener("click", (e) => {
     const isClickInsideMenu = nav.contains(e.target);
     const isClickButton = toggle.contains(e.target);
 
     if (!isClickInsideMenu && !isClickButton) {
-      nav.classList.remove("active");
+      closeMenu();
+    }
+  });
+
+  // =========================
+  // DESKTOP RESET
+  // =========================
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 1024) {
+      closeMenu();
     }
   });
 
 });
-
-
