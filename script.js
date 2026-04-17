@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // =========================
   nav.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
-      closeMenu();
+     
       nav.classList.remove("activ")
     });
   });
