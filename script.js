@@ -9,10 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Verhindert Doppelauslösung bei Touch + Click
   let touchUsed = false;
 
-  function toggleMenu(e) {
+  function openCloseMenu(e) {
     if (e) {
       e.preventDefault();
       e.stopPropagation();
@@ -25,57 +24,55 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================
-  // CLICK (Desktop / normale Browser)
+  // BUTTON CLICK
   // =========================
   toggle.addEventListener("click", (e) => {
     if (touchUsed) {
       touchUsed = false;
       return;
     }
-    toggleMenu(e);
+    openCloseMenu(e);
   });
 
   // =========================
-  // TOUCHSTART (iPad / iPhone Safari Fix)
+  // TOUCH FIX (iPad/iPhone)
   // =========================
   toggle.addEventListener("touchstart", (e) => {
     touchUsed = true;
-    toggleMenu(e);
+    openCloseMenu(e);
   }, { passive: false });
 
   // =========================
   // LINKS SCHLIESSEN MENÜ
   // =========================
   nav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
+
+    link.addEventListener("click", closeMenu);
+
+    link.addEventListener("touchend", () => {
       closeMenu();
-   
     });
+
   });
 
   // =========================
-  // ESC SCHLIESST MENÜ
-  // =========================
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      closeMenu();
-    }
-  });
-
-  // =========================
-  // CLICK OUTSIDE
+  // KLICK AUSSERHALB
   // =========================
   document.addEventListener("click", (e) => {
-    const isClickInsideMenu = nav.contains(e.target);
-    const isClickButton = toggle.contains(e.target);
-
-    if (!isClickInsideMenu && !isClickButton) {
+    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
       closeMenu();
     }
   });
 
   // =========================
-  // DESKTOP RESET
+  // ESC
+  // =========================
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // =========================
+  // RESET BEI DESKTOP
   // =========================
   window.addEventListener("resize", () => {
     if (window.innerWidth > 1024) {
@@ -85,5 +82,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   
 });
-
 
