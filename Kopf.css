@@ -239,3 +239,40 @@ body {
     text-align: left;
   }
 }
+
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(0,0,0,0.85);
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.lightbox:target {
+  display: flex;
+}
+
+.lightbox img {
+  display: block;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 10px;
+  margin: auto;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+  z-index: 1000000;
+}
