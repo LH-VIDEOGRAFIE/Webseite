@@ -26,7 +26,6 @@ body {
   z-index: 1000;
 }
 
-/* LOGO */
 .logo-area {
   display: flex;
   align-items: center;
@@ -75,22 +74,19 @@ body {
 }
 
 /* =========================
-   MOBILE FIX (WICHTIG!)
+   MOBILE + TABLET
 ========================= */
-
-
-
 @media (max-width: 1024px) {
-}
 
   .header {
-    flex-wrap: wrap;
     padding: 10px;
+    min-height: 72px;
   }
 
   .menu-toggle {
     display: block;
     z-index: 2000;
+    padding: 10px;
   }
 
   .nav-menu {
@@ -99,9 +95,10 @@ body {
     width: 100%;
     background: rgb(50, 50, 50);
     position: absolute;
-    top: 70px;
+    top: 72px;
     left: 0;
     padding: 15px 0;
+    gap: 0;
   }
 
   .nav-menu.active {
@@ -111,12 +108,13 @@ body {
   .nav-menu li {
     width: 100%;
     text-align: center;
-    margin: 8px 0;
+    margin: 6px 0;
   }
 
   .nav-menu li a {
     width: 100%;
     border-radius: 0;
+    padding: 12px;
   }
 }
 
