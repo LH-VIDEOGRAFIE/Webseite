@@ -80,6 +80,57 @@ body {
 @media (max-width: 1024px) {
 
   .header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .menu-toggle {
+    display: block;
+    z-index: 10001;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+
+    position: fixed;
+    top: 75px;          /* direkt unter Header */
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - 75px);
+    overflow-y: auto;
+
+    background: rgb(40,40,40);
+    padding: 10px 0;
+    z-index: 10000;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-menu li a {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 0;
+    text-align: center;
+  }
+}
+
+
+
+@media (max-width: 1024px) {
+
+  .header {
     flex-wrap: wrap;
     padding: 10px;
   }
