@@ -78,12 +78,11 @@ body {
 @media (max-width: 1024px) {
 
   .menu-toggle {
-    display: block;
+    display: flex;
     z-index: 2000;
   }
 
   .nav-menu {
-    width: 100%;
     display: none;
     position: absolute;
     top: 72px;
@@ -133,12 +132,6 @@ body {
   width: 100%;
   border-radius: 10px;
 }
-
-
-
-
-
-
 
 /* =========================
    MOBILE + TABLET
@@ -202,9 +195,6 @@ body {
 
 
 
-
-
-
 /* =========================
    RESPONSIVE TABLE (MOBILE)
 ========================= */
@@ -218,7 +208,8 @@ body {
   .price-list tbody, 
   .price-list tr, 
   .price-list td {
-    display: block;
+    display: flex;
+    flex-direction: column;
     width: 100%;
   }
 
