@@ -76,7 +76,7 @@ body {
 /* =========================
    MOBILE + TABLET
 ========================= */
-@media (max-width: 1024px) {
+@media (max-width: 748px) {
 
   .header {
     padding: 10px;
