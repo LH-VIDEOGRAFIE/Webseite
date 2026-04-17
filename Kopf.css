@@ -128,17 +128,6 @@ body {
 
 
 
-@media (max-width: 1024px) {
-
-  .header {
-    flex-wrap: wrap;
-    padding: 10px;
-  }
-
-  .menu-toggle {
-    display: block;
-    z-index: 2000;
-  }
 
   .nav-menu {
     display: none;
