@@ -80,7 +80,7 @@ body {
 
 
 
-@media (max-width: 748px) {
+@media (max-width: 1024px) {
 
   .header {
     flex-wrap: wrap;
