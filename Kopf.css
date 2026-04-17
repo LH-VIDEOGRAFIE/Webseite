@@ -39,6 +39,7 @@ body {
 
 /* DESKTOP NAV */
 .nav-menu {
+  width: 100%;
   display: flex;
   list-style: none;
   gap: 10px;
@@ -82,6 +83,7 @@ body {
   }
 
   .nav-menu {
+    width: 100%;
     display: none;
     position: absolute;
     top: 72px;
