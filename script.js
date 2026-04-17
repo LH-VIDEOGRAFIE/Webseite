@@ -80,6 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  
+
 });
 
