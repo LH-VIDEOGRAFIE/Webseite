@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
   const toggle = document.getElementById("menu-toggle");
@@ -8,9 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // Verhindert Doppelauslösung bei Touch + Click
   let touchUsed = false;
 
-  function openCloseMenu(e) {
+  function toggleMenu(e) {
     if (e) {
       e.preventDefault();
       e.stopPropagation();
@@ -23,55 +26,57 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // =========================
-  // BUTTON CLICK
+  // CLICK (Desktop / normale Browser)
   // =========================
   toggle.addEventListener("click", (e) => {
     if (touchUsed) {
       touchUsed = false;
       return;
     }
-    openCloseMenu(e);
+    toggleMenu(e);
   });
 
   // =========================
-  // TOUCH FIX (iPad/iPhone)
+  // TOUCHSTART (iPad / iPhone Safari Fix)
   // =========================
   toggle.addEventListener("touchstart", (e) => {
     touchUsed = true;
-    openCloseMenu(e);
+    toggleMenu(e);
   }, { passive: false });
 
   // =========================
   // LINKS SCHLIESSEN MENÜ
   // =========================
   nav.querySelectorAll("a").forEach(link => {
-
-    link.addEventListener("click", closeMenu);
-
-    link.addEventListener("touchend", () => {
+    link.addEventListener("click", () => {
       closeMenu();
+      nav.classList.remove("activ")
     });
-
   });
 
   // =========================
-  // KLICK AUSSERHALB
+  // ESC SCHLIESST MENÜ
   // =========================
-  document.addEventListener("click", (e) => {
-    if (!nav.contains(e.target) && !toggle.contains(e.target)) {
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
       closeMenu();
     }
   });
 
   // =========================
-  // ESC
+  // CLICK OUTSIDE
   // =========================
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
+  document.addEventListener("click", (e) => {
+    const isClickInsideMenu = nav.contains(e.target);
+    const isClickButton = toggle.contains(e.target);
+
+    if (!isClickInsideMenu && !isClickButton) {
+      closeMenu();
+    }
   });
 
   // =========================
-  // RESET BEI DESKTOP
+  // DESKTOP RESET
   // =========================
   window.addEventListener("resize", () => {
     if (window.innerWidth > 1024) {
@@ -79,5 +84,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  
 });
+
