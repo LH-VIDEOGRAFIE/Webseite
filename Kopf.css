@@ -1,3 +1,4 @@
+
 /* RESET */
 * {
   margin: 0;
@@ -10,9 +11,7 @@ body {
   background: #dddbdb;
 }
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 .header {
   width: 100%;
   background: rgb(83, 84, 84);
@@ -24,6 +23,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
+  min-height: 72px;
 }
 
 .logo-area {
@@ -37,14 +37,14 @@ body {
   height: 55px;
 }
 
-/* =========================
-   NAV DESKTOP
-========================= */
+/* DESKTOP NAV */
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .nav-menu li a {
@@ -55,15 +55,14 @@ body {
   border-radius: 6px;
   display: block;
   white-space: nowrap;
+  font-size: 15px;
 }
 
 .nav-menu li a:hover {
   background: rgb(235, 97, 55);
 }
 
-/* =========================
-   BURGER BUTTON
-========================= */
+/* BURGER */
 .menu-toggle {
   display: none;
   font-size: 32px;
@@ -71,33 +70,26 @@ body {
   border: none;
   color: white;
   cursor: pointer;
+  padding: 10px;
 }
 
-/* =========================
-   MOBILE + TABLET
-========================= */
-@media (max-width: 748px) {
-
-  .header {
-    padding: 10px;
-    min-height: 72px;
-  }
+/* TABLET + HANDY */
+@media (max-width: 1024px) {
 
   .menu-toggle {
     display: block;
     z-index: 2000;
-    padding: 10px;
   }
 
   .nav-menu {
     display: none;
-    flex-direction: column;
-    width: 100%;
-    background: rgb(50, 50, 50);
     position: absolute;
     top: 72px;
     left: 0;
-    padding: 15px 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgb(50, 50, 50);
+    padding: 10px 0;
     gap: 0;
   }
 
@@ -108,19 +100,18 @@ body {
   .nav-menu li {
     width: 100%;
     text-align: center;
-    margin: 6px 0;
+    margin: 0;
   }
 
   .nav-menu li a {
     width: 100%;
     border-radius: 0;
-    padding: 12px;
+    padding: 14px;
+    font-size: 16px;
   }
 }
 
-/* =========================
-   SERVICES / CARDS
-========================= */
+/* SERVICES */
 .services-box {
   display: flex;
   flex-wrap: wrap;
